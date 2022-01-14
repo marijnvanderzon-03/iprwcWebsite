@@ -1,0 +1,17 @@
+
+<details>
+  <summary><h2>Nieuw product toevoegen</h2></summary>
+  <form [formGroup]="ProductForm" (ngSubmit)="onSubmit()">
+    <ul>
+      <li><h3><label>product naam</label></h3></li>
+      <li><input formControlName="name" type="text" class="form-control" required name="name"  placeholder="voer de naam van het product"></li>
+      <li><h3><label>foto</label></h3></li>
+      <li><input formControlName="picture" type="file" accept="image/png, image/jpeg" class="form-control"  required name="picture"></li>
+      <li><h3><label>prijs</label></h3></li>
+      <li><input formControlName="price" type="number" id="price" placeholder="voer de prijs in" class="form-control"  required name="price"></li>
+      <li><h3><label>hoeveelheid in de voorraad</label></h3></li>
+      <li><input formControlName="quantity" type="number" id="quantity" placeholder="voer de voorraad in" class="form-control" required name="quantity"></li>
+      <li><button type="submit" [disabled]="ProductForm.invalid">submit</button></li>
+    </ul>
+  </form>
+</details>

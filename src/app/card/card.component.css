@@ -1,0 +1,30 @@
+.card{
+  align-content: center;
+  background-color: greenyellow;
+  padding-bottom: 5%;
+}
+
+.card p{
+  align-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card img{
+  display: block;
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.card figcaption{
+  align-content: center;
+  text-align: center;
+}
+
+.card button{
+  margin-right: 33%;
+  margin-left: 33%;
+  width: 33%;
+}

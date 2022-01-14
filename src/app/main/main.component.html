@@ -1,0 +1,18 @@
+<header xmlns="http://www.w3.org/1999/html">
+  <h1>Hondenwinkel</h1>
+  <h2>DE webshop voor al je honden en wensen</h2>
+</header>
+<nav>
+  <ul>
+    <li><button>info</button></li>
+    <li><button>winkelmandje</button></li>
+    <li><button>afrekenen</button></li>
+    <li><button [routerLink]="['', 'moderator']">moderator</button></li>
+  </ul>
+</nav>
+<div class="product_container">
+  <div *ngFor="let product of products">
+    <app-card></app-card>
+  </div>
+</div>
+

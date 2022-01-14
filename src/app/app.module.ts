@@ -2,15 +2,33 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { CardComponent } from './card/card.component';
+import { MainComponent } from './main/main.component';
+import { ModeratorComponent } from './moderator/moderator.component';
+import { RouterModule} from "@angular/router";
+import {AppRoutingModule} from "./app-routing.module";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import { ToegevoegdPopupComponent } from './moderator/toegevoegd-popup/toegevoegd-popup.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CardComponent,
+    MainComponent,
+    ModeratorComponent,
+    ToegevoegdPopupComponent
   ],
   imports: [
-    BrowserModule
+    AppRoutingModule,
+    BrowserModule,
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule{}
