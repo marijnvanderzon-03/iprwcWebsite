@@ -27,8 +27,12 @@ export class ModeratorComponent implements OnInit {
     return this.ProductForm.get('name')?.value;
   }
 
-  getPicture(){
+  getPictureName(){
     return this.ProductForm.get('picture')?.value;
+  }
+
+  getPicture(){
+    return this.ProductForm.get('picture');
   }
 
   getPrice(){
@@ -38,15 +42,32 @@ export class ModeratorComponent implements OnInit {
   getQuantity(){
     return this.ProductForm.get('quantity')?.value
   }
-  onSubmit() {
-    if(this.ProductForm.valid) {
-      this.product.product = this.getName();
-      this.product.price = this.getPrice();
-      this.product.image = this.getPicture();
-      this.product.quantity = this.getQuantity();
-      this.ProductForm.reset()
-      this.pService.createProduct(this.product, ()=>{})
+
+  //@ts-ignore
+  fileInputHandler(files) {
+    //todo find way to only send picture when sending form
+    let fileList = (<HTMLInputElement>files.target).files;
+    if (fileList && fileList.length > 0) {
+      let fileToUpload: File = fileList[0];
+      this.pService.sendPicture(fileToUpload, () => {
+      });
     }
   }
+    onSubmit(){
+      if (this.ProductForm.valid) {
+        this.product.product = this.getName();
+        this.product.price = this.getPrice();
+        this.product.image = this.getPictureName();
+        this.product.quantity = this.getQuantity();
+        this.ProductForm.reset()
+        let foto = this.product.image;
+        let replacementString = "C:\\fakepath\\";
+        foto = foto.replace(replacementString, "");
+        this.product.image = foto
+        //TODO maak multipart request voor sendPicture
+
+        this.pService.createProduct(this.product, ()=>{});
+      }
+    }
 
 }

@@ -1,5 +1,6 @@
 import {Component, NgModule, OnInit} from '@angular/core';
-import {}
+import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
+
 
 
 
@@ -13,25 +14,15 @@ export class ToegevoegdPopupComponent implements OnInit {
   onClose = ()=>{}
 
   data:{afkorting: string, beschrijving: string}
-  constructor() {
+  constructor(public activeModal: NgbActiveModal) {
+
     this.data= {afkorting: "er is geen afkorting", beschrijving: "er is geen beschrijving"}
   }
 
-
-  // private getDismissReason(reason: any): string {
-  //   if (reason === ModalDismissReasons.ESC) {
-  //     return 'by pressing ESC';
-  //   } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-  //     return 'by clicking on a backdrop';
-  //   } else {
-  //     return `with: ${reason}`;
-  //   }
-  // }
-  //
-  // onSave(){
-  //   this.activeModal.close();
-  //   this.onClose();
-  // }
+  onSave(){
+    this.activeModal.close();
+    this.onClose();
+  }
 
   ngOnInit(): void {
   }

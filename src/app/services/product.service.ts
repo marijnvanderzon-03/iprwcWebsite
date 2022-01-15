@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpService} from "./http.service";
 import {ProductModel} from "../Models/product.model";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,13 @@ export class productService {
   createProduct(product : ProductModel, implementation : (data : ProductModel) => void) {
     this.http.post<ProductModel>("/product", product, implementation);
   }
+
+  sendPicture(picture: File, implementation: (data: FormData) => void) {
+    let formData: FormData = new FormData();
+    formData.append('file', picture, picture?.name)
+    this.http.postFormData<any>("/uploadFile", formData, implementation)
+  }
+
 
   deleteProduct(product : ProductModel, implementation : (data : ProductModel) => void) {
     this.http.delete<ProductModel>("/product", product, implementation);

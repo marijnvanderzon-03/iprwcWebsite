@@ -30,6 +30,12 @@ export class HttpService {
     });
   }
 
+  public postFormData<FormData>(endpoint: string, body: FormData, implementation: (data: FormData) => void) {
+    this.http.post<HttpResponse<FormData>>(this.url + endpoint, body).subscribe((response) => {
+      HttpService.callImplementation<FormData>(response, implementation);
+    });
+  }
+
   public put<T>(endpoint : string, body : T, implementation : (data : T) => void) {
     this.http.put<HttpResponse<T>>(this.url + endpoint, body).subscribe((response) => {
       HttpService.callImplementation<T>(response, implementation);

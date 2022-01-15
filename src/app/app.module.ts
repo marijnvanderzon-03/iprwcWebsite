@@ -10,6 +10,7 @@ import {AppRoutingModule} from "./app-routing.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { ToegevoegdPopupComponent } from './moderator/toegevoegd-popup/toegevoegd-popup.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ToegevoegdPopupComponent } from './moderator/toegevoegd-popup/toegevoeg
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
