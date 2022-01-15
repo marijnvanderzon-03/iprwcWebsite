@@ -64,8 +64,6 @@ export class ModeratorComponent implements OnInit {
         let replacementString = "C:\\fakepath\\";
         foto = foto.replace(replacementString, "");
         this.product.image = foto
-        //TODO maak multipart request voor sendPicture
-
         this.pService.createProduct(this.product, ()=>{});
       }
     }
