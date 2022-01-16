@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+  <div class="container">
+    <a routerLink="/" class="navbar-brand text-light">Hondenwinkel</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a routerLink="/hoofdpagina" class="nav-link text-light">Home </a>
+        </li>
+        <li class="nav-item">
+          <div ngbDropdown>
+          <button class="btn btn-outline-light" id="dropdown" ngbDropdownToggle><label>winkelwagentje </label></button>
+            <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown">
+              <div *ngFor="let product of cartItems">
+                <label ngbDropdownItem>{{product.product}} <label id="custom">{{product.amountInCart}}</label></label>
+              </div>
+              <div class="dropdown-divider"></div>
+              <button ngbDropdownItem>afrekenen</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+

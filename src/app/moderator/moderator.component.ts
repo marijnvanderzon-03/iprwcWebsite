@@ -45,7 +45,6 @@ export class ModeratorComponent implements OnInit {
 
   //@ts-ignore
   fileInputHandler(files) {
-    //todo find way to only send picture when sending form
     let fileList = (<HTMLInputElement>files.target).files;
     if (fileList && fileList.length > 0) {
       let fileToUpload: File = fileList[0];

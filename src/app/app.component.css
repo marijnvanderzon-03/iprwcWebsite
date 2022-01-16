@@ -1,0 +1,53 @@
+.banner-innerpage{
+  background: linear-gradient( rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.1) ), url(../assets/pictures/botten2.jpg) repeat center fixed;
+
+}
+
+.banner-innerpage {
+  padding: 150px 0 100px;
+  background-size: cover;
+  background-position: center center;
+}
+.banner-innerpage .title {
+  -webkit-text-stroke: 1px black;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 5rem;
+}
+.banner-innerpage .subtitle {
+  color: #ffffff;
+}
+.shop-listing .shop-hover {
+  position: relative;
+}
+.shop-listing .shop-hover .card-img-overlay {
+  display: none;
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.shop-listing .shop-hover:hover .card-img-overlay {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.shop-listing .shop-hover .label {
+  padding: 5px 10px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.undertext{
+  -webkit-text-stroke: 0.8px black;
+}
+/*******************
+shop table
+*******************/
+.shop-table td {
+  padding: 30px 0;
+}

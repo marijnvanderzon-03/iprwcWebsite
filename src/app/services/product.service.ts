@@ -24,6 +24,12 @@ export class productService {
     this.http.postFormData<any>("/uploadFile", formData, implementation)
   }
 
+  public raiseAmountInCard(product: ProductModel){
+   let currentAmmount = product.amountInCart;
+   console.log("current ammount", currentAmmount)
+
+  }
+
 
   deleteProduct(product : ProductModel, implementation : (data : ProductModel) => void) {
     this.http.delete<ProductModel>("/product", product, implementation);

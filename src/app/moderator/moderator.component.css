@@ -1,3 +1,31 @@
 ul{
   list-style: none;
 }
+nav{
+  display: flex;
+  align-items: center;
+  background-color: rgb(17, 141, 141);
+}
+nav ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+nav li{
+  float: left;
+  display: inline;
+}
+nav li button{
+  font-size: 1.4em;
+  color: ghostwhite;
+  display: block;
+  padding: 1rem;
+  background-color: unset;
+  border: none!important;
+
+}
+
+nav li button:hover{
+  background-color: rgba(10, 211, 211, 0.72);
+}

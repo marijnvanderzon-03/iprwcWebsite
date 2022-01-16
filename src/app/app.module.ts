@@ -11,6 +11,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { ToegevoegdPopupComponent } from './moderator/toegevoegd-popup/toegevoegd-popup.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HeaderComponent } from './header/header.component';
+import {cartService} from "./services/cart.service";
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CardComponent,
     MainComponent,
     ModeratorComponent,
-    ToegevoegdPopupComponent
+    ToegevoegdPopupComponent,
+    HeaderComponent,
   ],
   imports: [
     AppRoutingModule,

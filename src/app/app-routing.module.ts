@@ -7,7 +7,7 @@ import {MainComponent} from "./main/main.component";
 export const routes: Routes = [
   { path: '', redirectTo: '/hoofdpagina', pathMatch: 'full'},
   {path: 'hoofdpagina', component: MainComponent},
-  {path: 'moderator', component: ModeratorComponent}
+  {path: 'moderator', component: ModeratorComponent},
 ];
 
 @NgModule({
