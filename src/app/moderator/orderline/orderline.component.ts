@@ -9,6 +9,8 @@ import {orderLine} from "../../Models/orderLine";
 export class OrderlineComponent implements OnInit {
   @Input()
   order! : orderLine;
+  @Input()
+  index! : number;
   products! : any;
 
 
