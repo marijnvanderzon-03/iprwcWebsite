@@ -21,3 +21,21 @@
     </ul>
   </form>
 </details>
+
+<details>
+  <summary><h2>Bestellingen bekijken</h2></summary>
+  <div class="product_container">
+    <div *ngFor="let order of orders">
+      <app-orderline [order] = order></app-orderline>
+    </div>
+  </div>
+</details>
+
+<details class="product_container">
+  <summary><h2>Voorraad bekijken</h2></summary>
+  <div class="product_container">
+    <div *ngFor="let product of products">
+      <app-voorraad-card [product]="product"></app-voorraad-card>
+    </div>
+  </div>
+</details>

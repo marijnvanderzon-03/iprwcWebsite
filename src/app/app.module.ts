@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {InjectionToken, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -13,6 +13,11 @@ import { ToegevoegdPopupComponent } from './moderator/toegevoegd-popup/toegevoeg
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
 import {cartService} from "./services/cart.service";
+import { OrcerConfirmPopupComponent } from './header/orcer-confirm-popup/orcer-confirm-popup.component';
+import { VoorraadCardComponent } from './moderator/voorraad-card/voorraad-card.component';
+import { OrderlineComponent } from './moderator/orderline/orderline.component';
+import { LoginComponent } from './login/login.component';
+import {JWT_OPTIONS, JwtHelperService} from "@auth0/angular-jwt";
 
 @NgModule({
   declarations: [
@@ -22,6 +27,10 @@ import {cartService} from "./services/cart.service";
     ModeratorComponent,
     ToegevoegdPopupComponent,
     HeaderComponent,
+    OrcerConfirmPopupComponent,
+    VoorraadCardComponent,
+    OrderlineComponent,
+    LoginComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -32,7 +41,7 @@ import {cartService} from "./services/cart.service";
     HttpClientModule,
     NgbModule
   ],
-  providers: [HttpClientModule],
+  providers: [HttpClientModule, JwtHelperService],
   bootstrap: [AppComponent]
 })
 

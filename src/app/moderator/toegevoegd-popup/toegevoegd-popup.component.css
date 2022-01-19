@@ -1,0 +1,16 @@
+#custom{
+  border: solid black 1px;
+  width: 2vw;
+  border-radius: 5px;
+  justify-content: center;
+  text-align: center;
+}
+
+#totaal{
+  /*border: solid black 1px;*/
+  background-color: gray;
+  width: 2vw;
+  border-radius: 50%;
+  justify-content: center;
+  text-align: center;
+}

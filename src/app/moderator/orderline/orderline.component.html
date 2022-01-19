@@ -1,0 +1,12 @@
+<div class="card" style="width: 30vw">
+  <div class="card-header">
+    <h5 class="card-title">{{order.orderId}}</h5>
+  </div>
+  <div class="card-body">
+      <ul class="list-group list-group-flush">
+      <div class="card-text" *ngFor="let item of products">
+        <li class="list-group-item">{{item.amount}} : {{item.productName}}</li>
+      </div>
+      </ul>
+  </div>
+</div>

@@ -1,5 +1,7 @@
 import {Component, NgModule, OnInit} from '@angular/core';
 import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {cartService} from "../../services/cart.service";
+import {orderModel} from "../../Models/order.model";
 
 
 
@@ -11,12 +13,10 @@ import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 })
 export class ToegevoegdPopupComponent implements OnInit {
 
-  onClose = ()=>{}
+  constructor(public activeModal: NgbActiveModal) { }
 
-  data:{afkorting: string, beschrijving: string}
-  constructor(public activeModal: NgbActiveModal) {
+  onClose = ()=>{
 
-    this.data= {afkorting: "er is geen afkorting", beschrijving: "er is geen beschrijving"}
   }
 
   onSave(){
@@ -26,4 +26,6 @@ export class ToegevoegdPopupComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 }
+

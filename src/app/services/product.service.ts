@@ -10,18 +10,19 @@ export class productService {
 
   constructor(private http : HttpService) { }
 
-  getAllproducts(implementation : (data : ProductModel[]) => void){
-    this.http.get<ProductModel[]>("/product", new Map<string, string>(),implementation);
+  getAllproducts(implementation : (data : ProductModel[]) => void, onFailure : () => void){
+    this.http.get<ProductModel[]>("/product", new Map<string, string>(),implementation, onFailure);
   }
 
-  createProduct(product : ProductModel, implementation : (data : ProductModel) => void) {
-    this.http.post<ProductModel>("/product", product, implementation);
+  createProduct(product : ProductModel, implementation : (data : ProductModel) => void, onFailure : () => void) {
+    this.http.post<ProductModel>("/product", product, implementation, onFailure);
   }
 
-  sendPicture(picture: File, implementation: (data: FormData) => void) {
+  sendPicture(picture: File, implementation: (data: FormData) => void, onFailure : () => void) {
+    let file : File = picture;
     let formData: FormData = new FormData();
-    formData.append('file', picture, picture?.name)
-    this.http.postFormData<any>("/uploadFile", formData, implementation)
+    formData.append('file', file)
+    this.http.post<any>("/uploadFile", formData, implementation, onFailure)
   }
 
   public raiseAmountInCard(product: ProductModel){
@@ -31,12 +32,12 @@ export class productService {
   }
 
 
-  deleteProduct(product : ProductModel, implementation : (data : ProductModel) => void) {
-    this.http.delete<ProductModel>("/product", product, implementation);
+  deleteProduct(product : ProductModel, implementation : (data : ProductModel) => void, onFailure : () => void) {
+    this.http.delete<ProductModel>("/product", product, implementation, onFailure);
   }
 
-  updateProduct(product : ProductModel, implementation : (data : ProductModel[]) => void) {
-    this.http.put<ProductModel[]>("/product", [product, product], implementation);
+  updateProduct(product : ProductModel, implementation : (data : ProductModel[]) => void, onFailure : () => void) {
+    this.http.put<ProductModel[]>("/product", [product, product], implementation, onFailure);
   }
 
 

@@ -20,9 +20,7 @@ export class MainComponent implements OnInit {
   getProductData() : void{
     this.productService.getAllproducts( (data) => {
       this.products = data;
-    })
-
-    console.log(this.products)
+    }, () => {})
   }
 
 }

@@ -29,3 +29,11 @@ nav li button{
 nav li button:hover{
   background-color: rgba(10, 211, 211, 0.72);
 }
+
+.product_container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap:2%;
+  row-gap: 2%;
+
+}

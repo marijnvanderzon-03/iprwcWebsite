@@ -12,13 +12,13 @@
         </li>
         <li class="nav-item">
           <div ngbDropdown>
-          <button class="btn btn-outline-light" id="dropdown" ngbDropdownToggle><label>winkelwagentje </label></button>
+            <button class="btn btn-outline-light" id="dropdown" ngbDropdownToggle><label >winkelwagentje <span class="badge badge-primary">{{totaal}}</span> </label></button>
             <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown">
               <div *ngFor="let product of cartItems">
-                <label ngbDropdownItem>{{product.product}} <label id="custom">{{product.amountInCart}}</label></label>
+                <label ngbDropdownItem>{{product.product}} <span class="badge badge-primary">{{product.amountInCart}}</span></label>
               </div>
               <div class="dropdown-divider"></div>
-              <button ngbDropdownItem>afrekenen</button>
+              <button ngbDropdownItem (click)="onBuy()">afrekenen €{{totaalBedrag}}</button>
             </div>
           </div>
         </li>

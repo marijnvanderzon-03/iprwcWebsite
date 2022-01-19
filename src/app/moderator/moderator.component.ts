@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {ProductModel} from "../Models/product.model";
 import {productService} from "../services/product.service";
 import {FormControl, FormGroup, FormArray, Validators} from "@angular/forms";
+import {NgbAlert, NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {orderModel} from "../Models/order.model";
+import {cartService} from "../services/cart.service";
+import {orderLine} from "../Models/orderLine";
+import {orderProduct} from "../Models/orderProduct";
 
 @Component({
   selector: 'app-moderator',
@@ -9,6 +14,9 @@ import {FormControl, FormGroup, FormArray, Validators} from "@angular/forms";
   styleUrls: ['./moderator.component.css']
 })
 export class ModeratorComponent implements OnInit {
+  allId: any = [];
+  orders: orderLine[] = [];
+  products : ProductModel[] = [];
   ProductForm = new FormGroup({
     name: new FormControl(),
     picture: new FormControl(),
@@ -17,7 +25,9 @@ export class ModeratorComponent implements OnInit {
   });
   product: ProductModel = new ProductModel();
 
-  constructor(private pService: productService) {
+  constructor(private pService: productService, private cService: cartService) {
+    this.getUniqueOrderId()
+    this.getProductData();
   }
 
   ngOnInit(): void {
@@ -48,10 +58,46 @@ export class ModeratorComponent implements OnInit {
     let fileList = (<HTMLInputElement>files.target).files;
     if (fileList && fileList.length > 0) {
       let fileToUpload: File = fileList[0];
-      this.pService.sendPicture(fileToUpload, () => {
-      });
+      this.pService.sendPicture(fileToUpload, () => {}, () => {});
     }
   }
+
+  getProductData() : void{
+    this.pService.getAllproducts( (data) => {
+      this.products = data;
+    }, () => {})
+  }
+
+  getUniqueOrderId() {
+    this.cService.getAllorders((data) => {
+      let orderList: any = [];
+      let orderExist = false;
+      let map = new Map<string, orderLine>(); //bevat orderID en orderLine(orderline bevat orderID en product[]
+      data.forEach((order) =>{ //voor elk orderID
+        let o = map.get(order.orderId);
+        if (o){ //als er al een map bestaat voeg toe aan orderLine
+          let op: orderProduct = new orderProduct();
+          op.productName = order.productName;
+          op.amount = order.amount;
+          o.product.push(op);
+        } else { //anders maak nieuwe aan
+          let op: orderProduct = new orderProduct();
+          op.productName = order.productName;
+          op.amount = order.amount;
+          let ol = new orderLine();
+          ol.orderId = order.orderId;
+          ol.product.push(op)
+          map.set(order.orderId, ol);
+        }
+      });
+      map.forEach(ol => {
+        this.orders.push(ol);
+      })
+    }, () => {});
+  }
+
+
+
     onSubmit(){
       if (this.ProductForm.valid) {
         this.product.product = this.getName();
@@ -63,8 +109,13 @@ export class ModeratorComponent implements OnInit {
         let replacementString = "C:\\fakepath\\";
         foto = foto.replace(replacementString, "");
         this.product.image = foto
-        this.pService.createProduct(this.product, ()=>{});
+        this.pService.createProduct(this.product, ()=>{}, () => {});
+        alert("product is succesvol toegevoegd")
+
       }
     }
 
 }
+//todo alle bestellingen weergeven
+//todo mooiere alert maken
+//todo inloggen

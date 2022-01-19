@@ -1,0 +1,37 @@
+<form [formGroup]="LoginForm" (submit)="Login()">
+  <h3>Inloggen</h3>
+  <div class="form-group">
+    <label for="emailInput">Email adres</label>
+    <input formControlName="email" type="email" class="form-control" id="emailInput" placeholder="voer je email adres in">
+  </div>
+  <div class="form-group">
+    <label for="passwordInput">wachtwoord</label>
+    <input formControlName="password" type="password" class="form-control" id="passwordInput" placeholder="voer je wachtwoord in">
+  </div>
+  <div class="form-check">
+    <button type="submit" class="btn btn-primary">Inloggen</button>
+  </div>
+</form>
+
+<form [formGroup]="RegisterForm" (submit)="Register()">
+  <h3>registreren</h3>
+  <div class="form-group">
+    <label for="emailInputReg">Email adres</label>
+    <input formControlName="email" type="email" class="form-control" id="emailInputReg" placeholder="voer je email adres in">
+  </div>
+  <div class="form-group">
+    <label for="firstname">voornaam</label>
+    <input formControlName="firstname" type="text" class="form-control" id="firstname" placeholder="voer je voornaam in">
+  </div>
+  <div class="form-group">
+    <label for="lastname">achternaam</label>
+    <input formControlName="lastname" type="text" class="form-control" id="lastname" placeholder="voer je achternaam in">
+  </div>
+  <div class="form-group">
+    <label for="passwordInput">wachtwoord</label>
+    <input formControlName="password" type="password" class="form-control" id="passwordInputReg" placeholder="voer je wachtwoord in">
+  </div>
+  <div class="form-check">
+    <button type="submit" class="btn btn-primary">Registreren</button>
+  </div>
+</form>
