@@ -56,6 +56,7 @@ export class HeaderComponent implements OnInit {
   }
 
   emptyCart(){
+    this.cart.totaal.next(-1);
     this.cart.emptyCart();
   }
 
