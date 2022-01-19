@@ -55,6 +55,10 @@ export class HeaderComponent implements OnInit {
   // this.totaalBedrag = 0;
   }
 
+  emptyCart(){
+    this.cart.emptyCart();
+  }
+
   constructor(public cart: cartService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
