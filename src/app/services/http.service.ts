@@ -9,7 +9,7 @@ export class HttpService {
   public static readonly RESPONSE_SUCCESS_CODE = "SUCCESS";
   public static readonly RESPONSE_FAILURE_CODE = "FAILURE";
 
-  private url : string = "http://localhost:8080";
+  private url : string = "https://pacific-garden-69140.herokuapp.com/";
   private http : HttpClient;
 
   constructor(private h : HttpClient) {
