@@ -23,13 +23,11 @@ export class RoleGuardService implements CanActivate{
 
       if (!this.Auth.isAuthenticated() || role !== expectedRole) {
         this.router.navigate(['login']);
-        console.log("je bent terug gestuurd want token is invalid")
         return false;
       }
       return true;
     }
     this.router.navigate(['login']);
-    console.log("je bent terug gestuurd want je hebt geen token")
     return false
   }
 }
