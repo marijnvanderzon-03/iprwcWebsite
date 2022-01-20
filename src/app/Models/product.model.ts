@@ -10,7 +10,7 @@ export class ProductModel{
     this.price = 0;
     this.image = ""
     this.quantity = 0;
-    this.amountInCart = 0;
+    this.amountInCart = 1;
   }
 
 }

@@ -37,3 +37,7 @@ nav li button:hover{
   row-gap: 2%;
 
 }
+
+form{
+  width: 60vw;
+}

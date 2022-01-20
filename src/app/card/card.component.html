@@ -1,5 +1,10 @@
 <li class="card bg-info text-light">
   <p>{{product.product}}</p>
   <figure><img src="https://pacific-garden-69140.herokuapp.com/downloadFile/{{product.image}}" alt="doggo man"><figcaption>€{{product.price}}</figcaption></figure>
-  <button class="btn btn-outline-light" (click)="onClick()">in winkelmandje</button>
+  <div *ngIf="product.quantity >0; else elseBlock">
+    <button class="btn btn-outline-light" [disabled]="product.quantity<=0" (click)="onClick()">in winkelmandje</button>
+  </div>
+  <ng-template #elseBlock>
+    <button class="btn btn-outline-light" [disabled]="product.quantity<=0" (click)="onClick()">product niet op voorraad</button>
+  </ng-template>
 </li>

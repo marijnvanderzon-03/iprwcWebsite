@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {orderLine} from "../../Models/orderLine";
+import {orderProduct} from "../../Models/orderProduct";
 
 @Component({
   selector: 'app-orderline',
@@ -11,7 +12,8 @@ export class OrderlineComponent implements OnInit {
   order! : orderLine;
   @Input()
   index! : number;
-  products! : any;
+
+  products! :orderProduct[];
 
 
 

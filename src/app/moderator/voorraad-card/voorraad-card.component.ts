@@ -14,9 +14,11 @@ export class VoorraadCardComponent implements OnInit {
 
   aantal = 0;
 
+
   constructor(private cartService: cartService, private pService: productService) {}
 
   updateValue(e: any){
+    console.log(e.target.value)
     this.aantal = e.target.value;
     this.product.quantity = e.target.value;
     this.pService.updateProduct(this.product, () => {}, () => {})
@@ -26,7 +28,7 @@ export class VoorraadCardComponent implements OnInit {
   }
 
   onClick(){
-    this.cartService.addItemToCart(this.product);
+    // this.cartService.addItemToCart(this.product);
   }
 
 }

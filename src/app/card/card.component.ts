@@ -16,6 +16,7 @@ export class CardComponent implements OnInit {
   constructor(private cartService: cartService) { }
 
   ngOnInit(): void {
+    this.product.amountInCart=1;
   }
 
   onClick(){
